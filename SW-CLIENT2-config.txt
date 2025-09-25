@@ -1,0 +1,13 @@
+enable
+configure terminal
+vtp mode client
+vtp domain CampusNetwork
+vtp password securepass
+interface range fa0/1-4
+switchport mode trunk
+exit
+spanning-tree mode pvst
+interface range fa0/5-24
+switchport mode access
+switchport access vlan 30
+end
