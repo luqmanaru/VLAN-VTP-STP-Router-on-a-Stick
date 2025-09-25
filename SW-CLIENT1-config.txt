@@ -1,0 +1,20 @@
+enable
+configure terminal
+interface range fa0/1-2
+switchport mode trunk
+exit
+vtp mode client
+vtp domain CampusNetwork
+vtp password securepass
+interface range fa0/3-12
+switchport mode access
+switchport access vlan 10
+exit
+interface range fa0/13-24
+switchport mode access
+switchport access vlan 20
+exit
+interface range fa0/1-2
+switchport mode trunk
+switchport trunk allowed vlan 10,20,30
+end
