@@ -1,0 +1,20 @@
+enable
+configure terminal
+vlan 10
+name HRD
+vlan 20
+name IT
+vlan 30
+name Marketing
+exit
+vtp mode server
+vtp domain CampusNetwork
+vtp password securepass
+interface range fa0/1-4
+switchport mode trunk
+exit
+spanning-tree vlan 10 root primary
+spanning-tree mode pvst
+interface fa0/5
+switchport mode trunk
+end
